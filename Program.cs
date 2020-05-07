@@ -53,10 +53,12 @@ namespace Guessing_game
                         {
                             Console.WriteLine("That was wrong! You have {0} more chances to go.", (FirstLimit-i));
                         }
+                        
                         else if (i == (FirstLimit-1))
                         {
                             Console.WriteLine("That was wrong! You have {0} guessing chance.", (FirstLimit - i));
                         }
+                        
                         else
                         {
                             Console.WriteLine("Game Over!");
@@ -98,10 +100,12 @@ namespace Guessing_game
                         {
                             Console.WriteLine("That was wrong! You have {0} more chances to go.", (SecondLimit-i));
                         }
+                
                         else if (i == (SecondLimit-1))
                         {
                             Console.WriteLine("That was wrong! You have {0} guessing chance.", (SecondLimit - i));
                         }
+                
                         else
                         {
                             Console.WriteLine("Game Over!");
@@ -143,10 +147,12 @@ namespace Guessing_game
                         {
                             Console.WriteLine("That was wrong! You have {0} more chances to go.", (ThirdLimit-i));
                         }
+                
                         else if (i == (ThirdLimit-1))
                         {
                             Console.WriteLine("That was wrong! You have {0} guessing chance.", (ThirdLimit - i));
                         }
+                
                         else
                         {
                             Console.WriteLine("Game Over!");
