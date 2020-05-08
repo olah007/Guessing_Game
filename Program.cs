@@ -27,145 +27,146 @@ namespace Guessing_game
             
             var random = new Random();
             
-            if(inputNumber == 1)            
+            switch (inputNumber)
             {
-                Console.WriteLine("EASY LEVEL!");
-                Console.WriteLine("You are to guess correctly the hidden number between 1 to 10, and you have 6 maximum guessing chance. Goodluck!");
-                
-                var randomNumberOne = random.Next(1, 10);
-                
-                const int FirstLimit = 6;
-                
-                for (var i=1; i<=FirstLimit; i++)
-                {   
-                    Console.WriteLine("Enter your guess number!");
-                    var canConvertTwo = Int32.TryParse(Console.ReadLine(), out int guessNumberOne);
-                
-                    if(!canConvertTwo || guessNumberOne < 1  || guessNumberOne > 10)
-                    {
-                        Console.WriteLine("Invalid input");
-                        return;
-                    }
+                case 1:          
+                    Console.WriteLine("EASY LEVEL!");
+                    Console.WriteLine("You are to guess correctly the hidden number between 1 to 10, and you have 6 maximum guessing chance. Goodluck!");
+                    
+                    var randomNumberOne = random.Next(1, 10);
+                    
+                    const int FirstLimit = 6;
+                    
+                    for (var i=1; i<=FirstLimit; i++)
+                    {   
+                        Console.WriteLine("Enter your guess number!");
+                        var canConvertTwo = Int32.TryParse(Console.ReadLine(), out int guessNumberOne);
+                    
+                        if(!canConvertTwo || guessNumberOne < 1  || guessNumberOne > 10)
+                        {
+                            Console.WriteLine("Invalid input");
+                            return;
+                        }
 
-                    if(guessNumberOne != randomNumberOne)
-                    {
-                        if(i < (FirstLimit-1)) 
+                        if(guessNumberOne != randomNumberOne)
                         {
-                            Console.WriteLine("That was wrong! You have {0} more chances to go.", (FirstLimit-i));
+                            if(i < (FirstLimit-1)) 
+                            {
+                                Console.WriteLine("That was wrong! You have {0} more chances to go.", (FirstLimit-i));
+                            }
+                            
+                            else if (i == (FirstLimit-1))
+                            {
+                                Console.WriteLine("That was wrong! You have {0} guessing chance.", (FirstLimit - i));
+                            }
+                            
+                            else
+                            {
+                                Console.WriteLine("Game Over!");
+                                Console.WriteLine("The correct number is: " + randomNumberOne);
+                            }
                         }
-                        
-                        else if (i == (FirstLimit-1))
-                        {
-                            Console.WriteLine("That was wrong! You have {0} guessing chance.", (FirstLimit - i));
-                        }
-                        
+
                         else
                         {
-                            Console.WriteLine("Game Over!");
-                            Console.WriteLine("The correct number is: " + randomNumberOne);
+                            Console.WriteLine("You got it right!");
+                            return;
                         }
                     }
-
-                    else
-                    {
-                        Console.WriteLine("You got it right!");
-                        return;
-                    }
-                }
-            }
-
-            if(inputNumber == 2)            
-            {
-                Console.WriteLine("MEDIUM LEVEL!");
-                Console.WriteLine("You are to guess correctly the hidden number between 1 to 20, and you have 4 maximum guessing chance. Goodluck!");
-                
-                var randomNumberTwo = random.Next(1, 20);
-                
-                const int SecondLimit = 4;
-                
-                for (var i=1; i<=SecondLimit; i++)
-                {   
-                    Console.WriteLine("Enter your guess number!");
-                    var canConvertThree = Int32.TryParse(Console.ReadLine(), out int guessNumberTwo);
-                
-                    if(!canConvertThree || guessNumberTwo < 1  || guessNumberTwo > 20)
-                    {
-                        Console.WriteLine("Invalid input");
-                        return;
-                    }
-
-                    if(guessNumberTwo != randomNumberTwo)
-                    {
-                        if(i < (SecondLimit-1)) 
+                break;
+            
+                case 2:
+                    Console.WriteLine("MEDIUM LEVEL!");
+                    Console.WriteLine("You are to guess correctly the hidden number between 1 to 20, and you have 4 maximum guessing chance. Goodluck!");
+                    
+                    var randomNumberTwo = random.Next(1, 20);
+                    
+                    const int SecondLimit = 4;
+                    
+                    for (var i=1; i<=SecondLimit; i++)
+                    {   
+                        Console.WriteLine("Enter your guess number!");
+                        var canConvertThree = Int32.TryParse(Console.ReadLine(), out int guessNumberTwo);
+                    
+                        if(!canConvertThree || guessNumberTwo < 1  || guessNumberTwo > 20)
                         {
-                            Console.WriteLine("That was wrong! You have {0} more chances to go.", (SecondLimit-i));
+                            Console.WriteLine("Invalid input");
+                            return;
                         }
-                
-                        else if (i == (SecondLimit-1))
+
+                        if(guessNumberTwo != randomNumberTwo)
                         {
-                            Console.WriteLine("That was wrong! You have {0} guessing chance.", (SecondLimit - i));
+                            if(i < (SecondLimit-1)) 
+                            {
+                                Console.WriteLine("That was wrong! You have {0} more chances to go.", (SecondLimit-i));
+                            }
+                    
+                            else if (i == (SecondLimit-1))
+                            {
+                                Console.WriteLine("That was wrong! You have {0} guessing chance.", (SecondLimit - i));
+                            }
+                    
+                            else
+                            {
+                                Console.WriteLine("Game Over!");
+                                Console.WriteLine("The correct number is: " + randomNumberTwo);
+                            }
                         }
-                
+
                         else
                         {
-                            Console.WriteLine("Game Over!");
-                            Console.WriteLine("The correct number is: " + randomNumberTwo);
+                            Console.WriteLine("You got it right!");
+                            return;
                         }
                     }
+                break;
+            
 
-                    else
-                    {
-                        Console.WriteLine("You got it right!");
-                        return;
-                    }
-                }
-            }
-
-            if(inputNumber == 3)            
-            {
-                Console.WriteLine("HARD LEVEL!");
-                Console.WriteLine("You are to guess correctly the hidden number between 1 to 50, and you have 3 maximum guessing chance. Goodluck!");
-                
-                var randomNumberThree = random.Next(1, 50);
-                
-                const int ThirdLimit = 3;
-                
-                for (var i=1; i<=ThirdLimit; i++)
-                {   
-                    Console.WriteLine("Enter your guess number!");
-                    var canConvertFour = Int32.TryParse(Console.ReadLine(), out int guessNumberThree);
-                
-                    if(!canConvertFour || guessNumberThree < 1  || guessNumberThree > 50)
-                    {
-                        Console.WriteLine("Invalid input");
-                        return;
-                    }
-
-                    if(guessNumberThree != randomNumberThree)
-                    {
-                        if(i < (ThirdLimit-1)) 
+                default:            
+                    Console.WriteLine("HARD LEVEL!");
+                    Console.WriteLine("You are to guess correctly the hidden number between 1 to 50, and you have 3 maximum guessing chance. Goodluck!");
+                    
+                    var randomNumberThree = random.Next(1, 50);
+                    
+                    const int ThirdLimit = 3;
+                    
+                    for (var i=1; i<=ThirdLimit; i++)
+                    {   
+                        Console.WriteLine("Enter your guess number!");
+                        var canConvertFour = Int32.TryParse(Console.ReadLine(), out int guessNumberThree);
+                    
+                        if(!canConvertFour || guessNumberThree < 1  || guessNumberThree > 50)
                         {
-                            Console.WriteLine("That was wrong! You have {0} more chances to go.", (ThirdLimit-i));
+                            Console.WriteLine("Invalid input");
+                            return;
                         }
-                
-                        else if (i == (ThirdLimit-1))
+
+                        if(guessNumberThree != randomNumberThree)
                         {
-                            Console.WriteLine("That was wrong! You have {0} guessing chance.", (ThirdLimit - i));
+                            if(i < (ThirdLimit-1)) 
+                            {
+                                Console.WriteLine("That was wrong! You have {0} more chances to go.", (ThirdLimit-i));
+                            }
+                    
+                            else if (i == (ThirdLimit-1))
+                            {
+                                Console.WriteLine("That was wrong! You have {0} guessing chance.", (ThirdLimit - i));
+                            }
+                    
+                            else
+                            {
+                                Console.WriteLine("Game Over!");
+                                Console.WriteLine("The correct number is: " + randomNumberThree);
+                            }
                         }
-                
+
                         else
                         {
-                            Console.WriteLine("Game Over!");
-                            Console.WriteLine("The correct number is: " + randomNumberThree);
+                            Console.WriteLine("You got it right!");
+                            return;
                         }
                     }
-
-                    else
-                    {
-                        Console.WriteLine("You got it right!");
-                        return;
-                    }
-                }
+                break;
             }
         }
     }
